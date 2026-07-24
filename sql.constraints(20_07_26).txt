@@ -1,0 +1,21 @@
+﻿Tasks / Requirements
+* Create a new SQL database named "customer_db" with a table named "customers" containing the following columns: customer_id, name, email, phone, and address.
+* Apply the following constraints to the "customers" table:
+   * PRIMARY KEY constraint on the customer_id column
+   * UNIQUE constraint on the email column
+   * NOT NULL constraint on the name and phone columns
+create database customer_db;
+create table customers (customer_id int primary key, name varchar(20),email varchar(20) unique,phone bigint not null,address varchar(50) not null);
+* Insert at least 5 sample records into the "customers" table, ensuring that the constraints are enforced correctly.
+Insert into customers values  (1,'rishi','rishi123@gmail.com',6305451592,'mhb'),
+(2,'shiva','shiva@gmail.com',9010456713,'hnk'),
+(3,'mani','mani@gmail.com',984834061,'knr'),
+(4,'jassy','jash@gmail.com',8106601550,'wrngl');
+
+
+* Attempt to insert a duplicate email address to test the UNIQUE constraint, and observe the error message.
+insert into customers values (6,'prabha','jash@gmail.com',7767737869,'bhpl');
+ERROR 1062 (23000): Duplicate entry 'jash@gmail.com' for key 'customers.email'
+* Drop the "customers" table and recreate it without the NOT NULL constraint on the phone column. Insert a new record with a NULL phone number and verify that it is allowed.
+ insert into customers values (6,'prabha','prabha@gmail.com',null,'bhpl');
+Query OK, 1 row affected (0.01 sec)
