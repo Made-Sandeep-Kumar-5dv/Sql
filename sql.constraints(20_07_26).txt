@@ -7,7 +7,7 @@
 Query1:
 create database customer_db;
 Query3:
-create table customers (customer_id int primary key, name varchar(20),email varchar(20) unique,phone bigint not null,address varchar(50) not null);
+create table customers (customer_id int primary key, name varchar(20) not null,email varchar(20) unique,phone bigint not null,address varchar(50) not null);
 
 * Insert at least 5 sample records into the "customers" table, ensuring that the constraints are enforced correctly.
 Query3:
