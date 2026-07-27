@@ -1,0 +1,12 @@
+﻿Tasks / Requirements
+* Create a SQL database with a table named "employees" containing columns for employee ID, name, department, and salary.
+create table employees (employee_id int primary key, name varchar(20) not null, department varchar(30) not null, salary BIGINT);
+insert into employees (employee_id, name, department, salary) values (1,’sandeep’,’IT’,45000),(2,’shiva’,’finance’,50000),(3,’mani’,’sales’,55000),(4,’rishi’,’Data Analysis’,75000),(5,’vikram’,’sales’,60000);
+* Write a SQL query that uses comparison operators to select all employees with a salary greater than $50,000.
+select name, salary from employees where salary > 50000;
+* Use logical operators to query employees who are either in the sales department or have a salary above $70,000.
+select name from employees where department = 'sales' or salary > 70000;
+* Apply arithmetic operators to calculate a 10% salary increase for all employees and update their salaries accordingly.
+update employees set salary = salary + (salary * 10/100);
+* Utilize the IN operator to find all employees in the departments 'Marketing', 'IT', or 'Finance'.
+select name from employees where department = 'Marketing' or department = 'IT' or department = 'finance';
