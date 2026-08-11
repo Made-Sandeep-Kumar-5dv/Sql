@@ -40,7 +40,6 @@ create view ab as select * from employees where emp_name like ‘A%’;
 14. Create a view that contains employees from either Chennai or Hyderabad.
 create view city as select * from employees where city in (‘Chennai’,’Hyderabad’);
 
-
 15. Create a view named employee_salary with emp_id, emp_name, and salary. Then increase the salary of employee 101 through the view and check whether the base table is affected.
 create view employee_salary as select emp_id,emp_name,salary from employees;
 update employee_salary set salary = salary + 10000 where emp_id = 101;
