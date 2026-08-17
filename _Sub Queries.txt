@@ -1,0 +1,10 @@
+﻿* Design a SQL query   that uses a sub query to find all employees who earn more than the average salary of their department.
+select * from employees e1 where sal>(select avg(sal) from employees e2 where e1.depart_id=e2.depart_id); 
+
+
+* Write a SQL query that utilizes a sub query to identify the names of products that have never been ordered.
+select product_name from products where product_id not in(select product_id from orders);
+* Create a SQL query with a sub query to determine the total sales amount for each region, where the region's sales are compared against the overall average sales across all regions.
+select region,sum(amount) as total_sales from sales group by region having sum(amount) > (select avg(regional_total) from (select sum(amount) as regional_total from sales group by region)as avg_sales);
+* Develop a SQL query using a sub query to list all customers who have placed orders with a total value greater than the customer with the highest total order value in the 'New York' region
+select customer_id,customer_name,sum(order_values) as total_value from customers as c inner join orders as o on c.customer_id=o.customer_id group by customer_id,customer_name having total_value > (select max(total_value) from (select customer_id,sum(order_values) as total_value from orders where region='New York' group by customer_id)x);
