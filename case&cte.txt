@@ -10,6 +10,7 @@ Rules:
 * Salary >= 80000 → High
 * Salary >= 50000 → Medium
 * Salary < 50000 → Low
+
 Select salary,
 Case
 When salary >= 80000 then “High”
@@ -17,9 +18,7 @@ When salary >= 50000 then “Medium”
 else “Low”
 end as salary_category
 From employees;
-________________
-
-
+----------------------------------------
 Q2. Student Performance
 Consider:
 students(student_id, student_name, marks)
@@ -33,6 +32,7 @@ Rules:
 * Marks >= 60 → Good
 * Marks >= 40 → Pass
 * Marks < 40 → Fail
+
 Select marks,
 Case
 When marks >= 90 then “Excellent”
@@ -41,11 +41,7 @@ When marks >= 60 then “Pass”
 else “Fail”
 end as result
 From students:
-________________
-
-
-
-
+-------------------------------------
 Q3. Department Average Salary
 Consider:
 employees(emp_id, emp_name, department, salary)
@@ -54,14 +50,13 @@ Display:
 * Department
 * Average salary
 Then display only those departments whose average salary is greater than 60000.
+
 with avg as
 (
 select deptid,avg(salary) as avg_salary from employees group by deptid
 )
  select deptid,avg_salary from avg where avg_salary > 60000;
-________________
-
-
+--------------------------------------------------------------------------------
 Q4. Find High-Spending Customers
 Consider:
 orders(order_id, customer_id, order_date, amount)
@@ -71,14 +66,13 @@ Using a CTE:
 Output:
 * Customer ID
 * Total spending
+
 with abc as
 (
 select customerid,sum(ordervalue) as total_spent from orders group by customerid
 )
 select * from abc where total_spent>100000;
-________________
-
-
+---------------------------------------------------------------
 Q5. Employee Performance Analysis
 Consider:
 employees(emp_id, emp_name, department, salary, performance_score)
@@ -95,9 +89,6 @@ Rules for performance_status:
 * Employee score > department average → Above Average
 * Employee score = department average → Average
 * Employee score < department average → Below Average
-
-
-
 
 with DeptAvg as 
 (
