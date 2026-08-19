@@ -1,30 +1,22 @@
-﻿Create a stored procedure to display all records from a table called Employees.
+﻿1. Create a stored procedure to display all records from a table called Employees.
 Delimiter //
 Create procedure emp()
 Begin
 Select * from employees;
 end//
-
-
 Call emp()//
 
-Write a stored procedure that accepts an EmployeeID and returns the employee details.
+2. Write a stored procedure that accepts an EmployeeID and returns the employee details.
 Delimiter //
 Create procedure e1(in employeeid int)
 Begin
 Select * from employees where empid = employeeid;
 End //
-
-
 Call e1(102)//
 
-
-Create a stored procedure that inserts a new employee into the Employees table with parameters:
-
+3. Create a stored procedure that inserts a new employee into the Employees table with parameters:
 * Name
-
 * Department
-
 * Salary
 delimiter //
 Create procedure e3()
@@ -33,98 +25,54 @@ Insert into employees values (“Vennila”,” Sales”,50000);
 End //
 Select * from employees //
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Write a stored procedure to update the salary of an employee using EmployeeID.
+4. Write a stored procedure to update the salary of an employee using EmployeeID.
 Delimiter //
 Create procedure e4(in employeeid int)
 Begin
 Update employees set salary = salary + 10000 where empid = employeeid;
 End //
-
-
 Call e4(109)//
 
-
-Create a stored procedure to delete an employee record using EmployeeID.
+5. Create a stored procedure to delete an employee record using EmployeeID.
 delimiter //
 Create procedure e5(in employeeid int)
 Begin
 Delete from employees where empid = employeeid;
 End //
-
-
 Call e4(109)//
 
-
-Write a stored procedure that takes Salary as input and displays employees whose salary is greater than that value.
+6. Write a stored procedure that takes Salary as input and displays employees whose salary is greater than that value.
 delimiter //
 Create procedure e7(in greatersalary int)
 Begin
 Select name,department,salary from employees where salary > greatersalary;
 End //
-
-
 Call e7(50000)//
 
-
-Write a stored procedure to calculate the average salary of employees.
+7. Write a stored procedure to calculate the average salary of employees.
 Create procedure avg()
 Begin
 Select deptname,avg(salary) from employees group by deptname;
 End //
-
-
 Call avg()//
 
-
-
-
-
-
-
-
-
-
-Create a stored procedure that returns the total number of employees in a department.
+8. Create a stored procedure that returns the total number of employees in a department.
 Create procedure totalemps()
 Begin
 Select deptname,count(empid) from emp group by deptname;
 End //
-
-
 Call totalemps()//
 
-Write a stored procedure to find the maximum salary in the Employees table.
+9. Write a stored procedure to find the maximum salary in the Employees table.
 Create procedure maxsalary()
 Begin
 Select max(salary) from employees;
 end//
-
-
 Call maxsalary()//
 
-
-Create a stored procedure that gives a bonus (10%) to employees whose salary is below 50,000.
+10. Create a stored procedure that gives a bonus (10%) to employees whose salary is below 50,000.
 Create procedure salarybonus()
 Begin
 Update employees set salary = salary * 1.10 where salary < 50000;
 End //
-
-
 Call salarybonus()//
